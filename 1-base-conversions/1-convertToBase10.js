@@ -3,7 +3,19 @@
 /******************************************************************************/
 
 const convertToBase10 = str => {
-  // Your code here
+  // Your code here// also can use parseInt
+  let base;
+  let chars ='0123456789abcdef'
+  if (str.startsWith('0b')) base = 2;
+  if (str.startsWith('0x')) base = 16;
+  let sum = 0;
+  for (let i = str.length - 1;  i >= 0 + 2; i--) {
+    let exp = str.length - 1 - i;
+    let els = str[i];
+    let el = Number(chars.indexOf(els));
+    sum += el*(base**exp)
+  }
+  return sum;
 };
 
 /******************************************************************************/

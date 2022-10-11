@@ -23,6 +23,14 @@ const binaryStringToArray = str => {
 
 const binaryToAscii = str => {
   // Your code here
+  let arr = binaryStringToArray(str);
+  let ret = '';
+  for (const bit8 of arr) {
+    let ascii = parseInt(bit8, 2);
+    let char = String.fromCharCode(ascii)
+    ret += char
+  }
+  return ret
 };
 
 /******************************************************************************/

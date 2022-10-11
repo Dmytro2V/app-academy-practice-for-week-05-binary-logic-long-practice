@@ -3,8 +3,42 @@
 /******************************************************************************/
 
 const convertToBase16 = element => {
-  // Your code here
+
+    // Your code here
+    // find max exp of 16 below element // or toString
+    let xes = '0x'
+    let rest = element
+    let maxExp16 = getMaxExp16(element)  
+
+    for (let i = 0; i <= maxExp16; i++)  {
+      let exp = 16**(maxExp16 - i);
+      if (exp <= rest) { 
+        let digit = Math.floor(rest/exp)
+        rest -= digit * exp;
+        if (digit >= 10) {
+          digit = 'abcdef'[digit - 10]
+        }
+        xes += digit;
+              
+      } else {
+        xes += 0;
+      }
+      
+    }
+    return xes
 };
+function getMaxExp16(num) { // num >=1
+    let i = 0
+    while (16**i <= num) {
+      i++
+    }
+    i--
+    return i;
+}
+const convertToBase_16 = str => {
+  return '0x' + (+str).toString(16)
+}
+
 
 /******************************************************************************/
 

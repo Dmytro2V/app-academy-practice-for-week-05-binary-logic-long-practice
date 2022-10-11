@@ -3,9 +3,36 @@
 /******************************************************************************/
 
 const convertToBase2 = element => {
-  // Your code here
+  // Your code here 
+ 
+  let bis = '0b'
+  let rest = element
+  let maxExp2 = Math.floor(getMaxExp2(element))  
+  for (let i = 0; i <= maxExp2; i++)  {
+    let exp = 2**(maxExp2 - i);
+    if (exp <= rest) { 
+      bis += 1 
+      rest -= exp;      
+    } else {
+      bis += 0;
+    }
+    
+  }
+  return bis
 };
+function getMaxExp2(num) { // num >=1
+  let i = 0
+  while (2**i <= num) {
+    i++
+  }
+  i--
+  return i;
+}
 
+
+const convertToBase_2 = str => {
+  return '0b' + (+str).toString(2)
+}
 /******************************************************************************/
 
 console.log(convertToBase2(4)); // 0b100
